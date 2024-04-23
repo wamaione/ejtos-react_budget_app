@@ -5,7 +5,7 @@ const AllocationForm = (props) => {
     const { dispatch} = useContext(AppContext);
 
     const [name, setName] = useState('');
-    const [quantity, setQuantity] = useState('');
+    const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
     
 
@@ -13,17 +13,17 @@ const AllocationForm = (props) => {
 
         const item = {
             name: name,
-            quantity: parseInt(quantity),
+            cost: parseInt(cost),
         };
 
         if(action === "Reduce") {
             dispatch({
-                type: 'RED_QUANTITY',
+                type: 'RED_EXPENSE',
                 payload: item,
             });
         } else {
                 dispatch({
-                    type: 'ADD_QUANTITY',
+                    type: 'ADD_EXPENSE',
                     payload: item,
                 });
             }
@@ -64,9 +64,9 @@ const AllocationForm = (props) => {
                         required='required'
                         type='number'
                         id='cost'
-                        value={quantity}
+                        value={cost}
                         style={{size: 10}}
-                        onChange={(event) => setQuantity(event.target.value)}>
+                        onChange={(event) => setCost(event.target.value)}>
                         </input>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>

@@ -9,10 +9,11 @@ const ExpenseItem = (props) => {
     const handleSubtract10 = () => {
         const item = {
             name: props.name,
+            cost: 10
         };
 
         dispatch({
-            type: 'DELETE_ITEM',
+            type: 'RED_EXPENSE',
             payload: item,
         });
     };
@@ -20,10 +21,11 @@ const ExpenseItem = (props) => {
     const handleAdd10 = () => {
         const item = {
             name: props.name,
+            cost: 10
         };
 
         dispatch({
-            type: 'DELETE_ITEM',
+            type: 'ADD_EXPENSE',
             payload: item,
         });
     };
@@ -31,7 +33,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
         <td>{props.name}</td>
-        <td>{props.quantity}</td>
+        <td>{props.cost}</td>
         <td><FaPlusCircle size='2.2em' color="green" onClick={handleAdd10}></FaPlusCircle></td>
         <td><FaMinusCircle size='2.2em' color="red" onClick={handleSubtract10}></FaMinusCircle></td>
         
