@@ -10,8 +10,8 @@ const Budget = () => {
 
     return (
         <div className='alert alert-primary' style={{ backgroundColor : "#ddddd4"}} >
-            <span >Budget: £ {budget}</span>
-        {/*    <input type='number'></input> */}
+            <span >Budget: £ </span>
+            <input type='number' min="0" max="20000" step="10" ></input>
         </div>
     );
 };
