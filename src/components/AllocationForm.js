@@ -3,6 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
     const { dispatch} = useContext(AppContext);
+    const { budgetEntered } = useContext(AppContext); 
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -10,6 +11,14 @@ const AllocationForm = (props) => {
     
 
     const submitEvent = () => {
+        
+        let budgetEntered = document.getElementById("budgetField").value;
+
+        if(parseInt(budgetEntered) > 20000)
+        {
+            alert(`The value of the budget is greater than 20000.`);
+            return;
+        }
 
         const item = {
             name: name,

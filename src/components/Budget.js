@@ -1,17 +1,20 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from '../context/AppContext'; 
 
 const Budget = () => {
  
-    const { budget } = useContext(AppContext);
-{/*    const totalExpenses = expenses.reduce((total, item) => {
-        return (total += (item.unitprice * item.cost));
-    }, 0); */}
+    const { totalExpensesBis } = useContext(AppContext);
 
     return (
         <div className='alert alert-primary' style={{ backgroundColor : "#ddddd4"}} >
             <span >Budget: £ </span>
-            <input type='number' min="0" max="20000" step="10" ></input>
+            <input type='number' id="budgetField" defaultValue = "2000" min="0" max="20000" step="10" onClick={ () => {
+                let currentValue = document.getElementById("budgetField").value;;
+                if( totalExpensesBis >= currentValue)
+                {
+                    alert(`You cannot reduce the budget value lower than the spending`);
+                }
+            } }></input>
         </div>
     );
 };
