@@ -4,7 +4,7 @@ import { FaMinusCircle } from 'react-icons/fa';
 import { FaPlusCircle } from "react-icons/fa";
 
 const ExpenseItem = (props) => {
-    const { dispatch, Location} = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
     const handleSubtract10 = () => {
         const item = {
@@ -33,7 +33,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
         <td>{props.name}</td>
-        <td>£{props.cost}</td>
+        <td>{currency}{props.cost}</td>
         <td><FaPlusCircle size='2.2em' color="green" onClick={handleAdd10}></FaPlusCircle></td>
         <td><FaMinusCircle size='2.2em' color="red" onClick={handleSubtract10}></FaMinusCircle></td>
         

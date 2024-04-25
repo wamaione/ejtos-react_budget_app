@@ -3,10 +3,10 @@ import { AppContext } from '../context/AppContext';
 
 const Remaining = () => {
   
-    const { remaining } = useContext(AppContext);
+    const { remaining, currency } = useContext(AppContext);
     return (
         <div className='alert alert-primary' style={{ backgroundColor : "#ccffcc"}}>
-            <span>Remaining £{remaining} </span>
+            <span>Remaining {currency}{remaining} </span>
         </div>
     );
 };
